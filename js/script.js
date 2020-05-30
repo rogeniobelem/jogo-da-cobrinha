@@ -7,6 +7,10 @@ cobrinha[0] = {
   y: 8 * box,
 };
 let direction = "right";
+let comida = {
+    x:Math.floor(Math.random() * 15 + 1) * box,
+    y:Math.floor(Math.random() * 15 + 1) * box
+}
 
 function criarBG() {
   context.fillStyle = "lightgreen";
@@ -18,6 +22,11 @@ function criarCobrinha() {
     context.fillStyle = "green";
     context.fillRect(cobrinha[i].x, cobrinha[i].y, box, box);
   }
+}
+
+function drawFood() {
+    context.fillStyle = "red";
+    context.fillRect(comida.x, comida.y, box, box);
 }
 
 document.addEventListener("keydown", update);
@@ -37,6 +46,7 @@ function iniciarJogo() {
 
   criarBG();
   criarCobrinha();
+  drawFood();
 
   let cobrinhaX = cobrinha[0].x;
   let cobrinhaY = cobrinha[0].y;
